@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { projectsData } from "./data/projects";
+import Script from "next/script";
 
 // Componente do Carrossel Dinâmico de Imagens de Desenvolvimento Web
 function WebDevCarousel() {
@@ -71,6 +72,21 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-slate-600 text-zinc-100 flex flex-col items-center justify-between p-4 md:p-12 selection:bg-cyan-500 selection:text-black overflow-x-hidden">
       
+      {/* GOOGLE TAG / ANALYTICS INTEGRATION */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=GTM-NF45B7ZF"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-NF45B7ZF');
+        `}
+      </Script>
+
       {/* LOGÓTIPO DE FUNDO POSICIONADO NO TOPO ENTRE A NAVBAR E O HERO */}
       <div className="fixed top-24 inset-x-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
         <img 
