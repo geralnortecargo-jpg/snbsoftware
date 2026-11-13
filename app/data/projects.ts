@@ -1,31 +1,44 @@
 export interface Project {
-  id: string;
+  id: string | number;
   title: string;
   category: string;
   client: string;
   description: string;
   tags: string[];
-  imageBg: string;
+  image?: string;
+  imageBg?: string;
   link?: string;
 }
 
 export const projectsData: Project[] = [
   {
-    id: "loja-19",
-    title: "Loja 19",
+    id: 1,
+    title: "Loja 19 - E-Commerce",
     category: "E-Commerce",
     client: "Loja 19",
-    description: "Plataforma de comércio eletrónico completa, otimizada para alta conversão, integração com pagamentos digitais (MB WAY / Multibanco) e gestão intuitiva.",
-    tags: ["Next.js", "Stripe / Multibanco", "Tailwind CSS"],
-    imageBg: "from-cyan-500/20 to-blue-600/20",
+    description: "Plataforma de comércio eletrónico completa com integração de pagamentos e painel de gestão de produtos.",
+    tags: ["Next.js", "Tailwind CSS", "Stripe", "TypeScript"],
+    image: "/loja19.jpg",
+    link: "https://loja19domercado.pt"
   },
   {
-    id: "icm-auto",
-    title: "ICM Auto",
-    category: "Stands de Automóveis",
+    id: 2,
+    title: "ICM Auto - Portal Automóvel",
+    category: "Portal Web",
     client: "ICM Auto",
-    description: "Portal dinâmico para stand automóvel com sistema de filtragem avançada de viaturas, galeria imersiva e formulários para marcação de testes.",
-    tags: ["React", "Framer Motion", "SEO Otimizado"],
-    imageBg: "from-blue-500/20 to-indigo-600/20",
+    description: "Stand virtual com motor de busca avançado, filtros em tempo real e sistema de reservas de test-drive.",
+    tags: ["Next.js", "React", "Tailwind CSS", "API REST"],
+    image: "",
+    link: "https://exemplo.com"
   },
+  {
+    id: 3,
+    title: "Nortecargo - Empresa de Mudanças",
+    category: "Portal Web",
+    client: "Nortecargo",
+    description: "Site com Formulário de contacto automatizado a pedido do cliente",
+    tags: ["Next.js", "React", "Tailwind CSS", "API REST"],
+    image: "",
+    link: "https://www.nortecargo.com"
+  }
 ];
