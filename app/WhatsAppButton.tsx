@@ -3,7 +3,7 @@ import { MessageCircle } from 'lucide-react'; // Ou podes usar um SVG do WhatsAp
 
 export default function WhatsAppButton() {
   // Substitui pelo teu número de telemóvel no formato internacional (ex: 351912345678)
-  const phoneNumber = '351912345678'; 
+  const phoneNumber = '351965531009'; 
   const message = encodeURIComponent('Olá! Gostaria de falar sobre um projeto de desenvolvimento web.');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
