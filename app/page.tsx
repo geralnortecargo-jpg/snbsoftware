@@ -73,18 +73,25 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [phrases.length]);
 
-  // Se estiver no estado de carregamento inicial, exibe apenas o logótipo em grande destaque
+  // Se estiver no estado de carregamento inicial, exibe o ecrã de intro com o PNG
   if (loading) {
     return (
-      <div className="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center gap-4 z-50 animate-fade-in">
-        <img 
-          src="/logo.jpg" 
-          alt="SNB Logo" 
-          className="w-28 h-28 md:w-36 md:h-36 rounded-2xl object-cover border border-slate-700 shadow-2xl animate-pulse"
-        />
-        <span className="text-sm font-extrabold tracking-widest text-white uppercase">
-          SNB - Software Norte Build
-        </span>
+      <div className="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center gap-5 z-50">
+        <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-slate-900 border border-slate-700 flex items-center justify-center shadow-2xl p-2 animate-pulse">
+          <img 
+            src="/logo.png" 
+            alt="SNB Logo" 
+            className="w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <span className="text-lg font-black tracking-widest text-white uppercase">
+            SNB
+          </span>
+          <span className="text-xs text-slate-400 tracking-wider uppercase font-mono">
+            Software Norte Build
+          </span>
+        </div>
       </div>
     );
   }
@@ -95,7 +102,7 @@ export default function Home() {
       {/* LOGÓTIPO DE FUNDO CENTRALIZADO */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0">
         <img 
-          src="/logo.jpg" 
+          src="/logo.png" 
           alt="SNB Background Logo" 
           className="w-[300px] h-[300px] md:w-[600px] md:h-[600px] object-contain opacity-30 rounded-full blur-[0.3px]"
         />
@@ -107,7 +114,7 @@ export default function Home() {
         {/* NAVBAR */}
         <header className="w-full flex justify-between items-center py-4 px-6 rounded-2xl border border-slate-800 bg-slate-900/70 backdrop-blur-md shadow-xl">
           <div className="flex items-center gap-3">
-            <img src="/logo.jpg" alt="SNB" className="h-10 w-10 rounded-xl object-cover border border-slate-700" />
+            <img src="/logo.png" alt="SNB" className="h-10 w-10 rounded-xl object-cover border border-slate-700" />
             <div className="flex flex-col">
               <span className="text-lg font-extrabold tracking-wider text-white">SNB</span>
               <span className="text-[10px] text-slate-400 tracking-widest uppercase">Desenvolvimento Web</span>
@@ -297,3 +304,10 @@ export default function Home() {
     </div>
   );
 }
+
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NF45B7ZF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
