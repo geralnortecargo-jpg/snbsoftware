@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import WhatsAppButton from "./WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "SNB | Software Norte Build",
@@ -35,6 +36,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-slate-950 text-slate-100">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
