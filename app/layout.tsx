@@ -19,3 +19,19 @@ export default function RootLayout({
     </html>
   );
 }
+import WhatsAppButton from '@/components/WhatsAppButton';
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="pt">
+      <body className="...">
+        {children}
+        <WhatsAppButton />
+      </body>
+    </html>
+  );
+}
