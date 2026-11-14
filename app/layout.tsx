@@ -33,6 +33,30 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Fragmento de Conversão (Enviar formulário de leads) */}
+        <Script
+          id="google-conversion-snippet"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                  'send_to': 'AW-18573086971/7dYVCIix17cdEPuhq5hF',
+                  'value': 1.0,
+                  'currency': 'EUR',
+                  'event_callback': callback
+                });
+                return false;
+              }
+            `,
+          }}
+        />
       </head>
       <body className="antialiased bg-slate-950 text-slate-100">
         {children}
