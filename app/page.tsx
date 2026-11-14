@@ -90,7 +90,7 @@ export default function Home() {
       {/* LOGÓTIPO DE FUNDO POSICIONADO NO TOPO ENTRE A NAVBAR E O HERO */}
       <div className="fixed top-24 inset-x-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
         <img 
-          src="/logo.jpg" 
+          src="/logo.png" 
           alt="SNB Background Logo" 
           className="w-[280px] h-[140px] md:w-[450px] md:h-[220px] object-contain opacity-35 rounded-2xl blur-[0.3px] shadow-2xl"
         />
@@ -103,7 +103,7 @@ export default function Home() {
         <header className="w-full flex justify-between items-center py-4 px-6 rounded-2xl border border-slate-500/40 bg-slate-700/60 backdrop-blur-2xl shadow-xl">
           <div className="flex items-center gap-3">
             <img 
-              src="/logo.jpg" 
+              src="/logo.png" 
               alt="SNB - Software Norte Build" 
               className="h-10 w-10 rounded-xl object-cover border border-cyan-500/30 shadow-md"
             />
@@ -179,7 +179,7 @@ export default function Home() {
         {/* Secção de Apresentação & Projetos */}
         <section id="projetos" className="w-full my-12">
           
-          <div id="servicos" className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16 p-8 rounded-3xl border border-slate-500/40 bg-slate-700/50 backdrop-blur-2xl shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16 p-8 rounded-3xl border border-slate-500/40 bg-slate-700/50 backdrop-blur-2xl shadow-2xl">
             <div className="lg:col-span-7 flex flex-col gap-5">
               <span className="text-xs uppercase tracking-widest text-cyan-300 font-extrabold">
                 O Nosso Processo & Especialidades
