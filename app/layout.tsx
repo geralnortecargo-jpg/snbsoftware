@@ -1,66 +1,37 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import WhatsAppButton from "./WhatsAppButton";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SNB | Software Norte Build",
-  description: "Desenvolvimento Web & Soluções Digitais de Alta Performance",
+  title: "SNB Software - Desenvolvimento Web e Aplicações à Medida",
+  description: "Especialistas em Next.js, React, Landing Pages e Software de Gestão.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="pt">
       <head>
-        {/* Etiqueta Google Ads */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18573086971"
-        />
-        <Script
-          id="google-tag"
-          strategy="afterInteractive"
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-NF45B7ZF"></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'AW-18573086971');
-            `,
-          }}
-        />
-
-        {/* Fragmento de Conversão (Enviar formulário de leads) */}
-        <Script
-          id="google-conversion-snippet"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              function gtag_report_conversion(url) {
-                var callback = function () {
-                  if (typeof(url) != 'undefined') {
-                    window.location = url;
-                  }
-                };
-                gtag('event', 'conversion', {
-                  'send_to': 'AW-18573086971/7dYVCIix17cdEPuhq5hF',
-                  'value': 1.0,
-                  'currency': 'EUR',
-                  'event_callback': callback
-                });
-                return false;
-              }
+              gtag('config', 'GTM-NF45B7ZF');
             `,
           }}
         />
       </head>
-      <body className="antialiased bg-slate-950 text-slate-100">
+      <body className={`${inter.className} bg-gray-900 text-gray-200 antialiased min-h-screen flex flex-col`}>
         {children}
-        <WhatsAppButton />
       </body>
     </html>
   );
