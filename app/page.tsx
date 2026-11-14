@@ -99,8 +99,8 @@ export default function Home() {
       {/* CONTEÚDO PRINCIPAL */}
       <div className="relative z-10 w-full max-w-6xl flex flex-col items-center justify-between">
         
-        {/* Cabeçalho / Navbar */}
-        <header className="w-full flex justify-between items-center py-4 px-6 rounded-2xl border border-slate-800 bg-slate-800/80 backdrop-blur-2xl shadow-xl">
+        {/* Cabeçalho / Navbar com Número de Telefone em Destaque */}
+        <header className="w-full flex flex-col md:flex-row justify-between items-center py-4 px-6 gap-4 rounded-2xl border border-slate-800 bg-slate-800/80 backdrop-blur-2xl shadow-xl">
           <div className="flex items-center gap-3">
             <img 
               src="/logo.jpg" 
@@ -117,7 +117,17 @@ export default function Home() {
             </div>
           </div>
 
-          <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-300">
+          <div className="flex items-center gap-3 bg-slate-900/80 border border-cyan-500/30 px-4 py-2 rounded-xl shadow-inner">
+            <span className="text-xs text-slate-300 font-medium">Orçamentos Grátis:</span>
+            <a 
+              href="tel:965531009" 
+              className="text-cyan-300 font-black tracking-wide hover:text-cyan-200 transition-colors text-sm md:text-base"
+            >
+              📞 965 531 009
+            </a>
+          </div>
+
+          <nav className="hidden lg:flex gap-6 text-sm font-medium text-slate-300">
             <a href="#projetos" className="hover:text-cyan-400 transition-colors">Portefólio</a>
             <a href="#servicos" className="hover:text-cyan-400 transition-colors">Serviços</a>
             <a href="#contacto" className="hover:text-cyan-400 transition-colors">Contacto</a>
@@ -125,7 +135,7 @@ export default function Home() {
 
           <a 
             href="#contacto" 
-            className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs transition-all shadow-md"
+            className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs transition-all shadow-md hidden sm:block"
           >
             Pedir Orçamento
           </a>
@@ -168,10 +178,10 @@ export default function Home() {
               Ver Portefólio
             </a>
             <a 
-              href="#contacto" 
-              className="border border-slate-700 hover:border-slate-500 bg-slate-800 text-slate-200 font-bold px-9 py-3.5 rounded-xl transition-all"
+              href="tel:965531009" 
+              className="border border-slate-700 hover:border-slate-500 bg-slate-800 text-slate-200 font-bold px-9 py-3.5 rounded-xl transition-all flex items-center gap-2"
             >
-              Falar Comigo
+              Ligar Agora
             </a>
           </div>
         </section>
@@ -272,14 +282,22 @@ export default function Home() {
         <section id="contacto" className="w-full max-w-4xl my-12 p-10 rounded-3xl border border-cyan-500/30 bg-slate-800/60 backdrop-blur-2xl text-center shadow-2xl">
           <h2 className="text-2xl md:text-3xl font-black mb-4 text-white">Tens um projeto em mente?</h2>
           <p className="text-slate-300 text-sm md:text-base max-w-lg mx-auto mb-10 font-medium">
-            Vamos transformar a tua ideia em realidade digital. Envia mensagem e daremos andamento ao teu orçamento personalizado.
+            Vamos transformar a tua ideia em realidade digital. Envia mensagem ou liga diretamente para darmos andamento ao teu orçamento personalizado.
           </p>
-          <a 
-            href="mailto:geral@snbsoftware.com" 
-            className="inline-block bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold px-10 py-4 rounded-xl transition-all shadow-xl text-sm"
-          >
-            Enviar E-mail Direto
-          </a>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a 
+              href="tel:965531009" 
+              className="inline-block bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold px-10 py-4 rounded-xl transition-all shadow-xl text-sm"
+            >
+              Ligar: 965 531 009
+            </a>
+            <a 
+              href="mailto:geral@snbsoftware.com" 
+              className="inline-block bg-slate-900 hover:bg-slate-950 text-cyan-300 border border-cyan-500/30 font-bold px-10 py-4 rounded-xl transition-all shadow-xl text-sm"
+            >
+              Enviar E-mail
+            </a>
+          </div>
         </section>
 
         {/* Rodapé */}
