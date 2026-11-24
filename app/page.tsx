@@ -9,6 +9,12 @@ const WHATSAPP_TRAFEGO =
     "Olá SNB! Quero uma proposta de tráfego pago (Meta Ads) para o meu negócio."
   );
 
+const WHATSAPP_SITES =
+  "https://wa.me/351965531009?text=" +
+  encodeURIComponent(
+    "Olá SNB! Quero um orçamento para criação / programação de site ou aplicação."
+  );
+
 const packages = [
   {
     name: "Arranque",
@@ -49,6 +55,93 @@ const packages = [
   },
 ];
 
+const webServices = [
+  {
+    title: "Sites e landing pages",
+    text: "Páginas rápidas, claras e pensadas para converter — apresentação da empresa, orçamentos e contacto.",
+  },
+  {
+    title: "Lojas online",
+    text: "E-commerce completo com catálogo, checkout e pagamentos locais (MB WAY, Multibanco e Stripe).",
+  },
+  {
+    title: "Portais e stands",
+    text: "Portais automóveis e catálogos com pesquisa, filtros em tempo real e pedidos de contacto ou test-drive.",
+  },
+  {
+    title: "Apps e software à medida",
+    text: "Ferramentas internas, painéis e fluxos à medida do teu negócio — em Next.js e React.",
+  },
+];
+
+const carouselImages = [
+  {
+    url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+    title: "Arquitectura Next.js limpa",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop",
+    title: "Frontend moderno e responsivo",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+    title: "Aplicações web sob medida",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200&auto=format&fit=crop",
+    title: "Soluções digitais de ponta a ponta",
+  },
+];
+
+function WebDevCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+    }, 3800);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative aspect-[5/4] w-full overflow-hidden border border-[var(--line)] bg-[var(--ink)] md:aspect-[4/3]">
+      {carouselImages.map((img, idx) => (
+        <div
+          key={img.url}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            idx === currentIndex ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <img
+            src={img.url}
+            alt={img.title}
+            className="h-full w-full object-cover"
+            style={{ filter: "saturate(0.7) brightness(0.72)" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)] via-[var(--ink)]/20 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between gap-3 p-5">
+            <p className="font-display text-sm text-[var(--text)] md:text-base">
+              {img.title}
+            </p>
+            <div className="flex gap-1.5">
+              {carouselImages.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-1 transition-all ${
+                    i === currentIndex
+                      ? "w-5 bg-[var(--accent)]"
+                      : "w-1 bg-white/25"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -61,7 +154,6 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden surface-noise grain text-[var(--text)]">
-      {/* subtle vertical light line */}
       <div
         aria-hidden
         className="pointer-events-none fixed left-1/2 top-0 z-0 h-[70vh] w-px -translate-x-1/2 bg-gradient-to-b from-[var(--accent)]/30 via-transparent to-transparent opacity-40"
@@ -91,9 +183,12 @@ export default function Home() {
             </div>
           </a>
 
-          <nav className="hidden items-center gap-8 text-sm text-[var(--muted)] md:flex">
+          <nav className="hidden items-center gap-7 text-sm text-[var(--muted)] md:flex">
             <a href="#trafego" className="transition-colors hover:text-[var(--text)]">
-              Tráfego pago
+              Tráfego
+            </a>
+            <a href="#servicos" className="transition-colors hover:text-[var(--text)]">
+              Sites & apps
             </a>
             <a href="#projetos" className="transition-colors hover:text-[var(--text)]">
               Trabalho
@@ -134,34 +229,32 @@ export default function Home() {
               SNB · Software Norte Build
             </p>
             <h1 className="reveal-delay font-display mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-[var(--text)] md:text-6xl md:leading-[1.02]">
-              Clientes novos.
+              Sites que convertem.
               <br />
-              Com anúncios que pagam.
+              Anúncios que trazem clientes.
             </h1>
             <p className="reveal-delay-2 mt-6 max-w-xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
-              Montamos e gerimos tráfego pago no Meta Ads para o teu negócio
-              receber contactos — sem teatro, com foco em resultado.
+              Programamos lojas, portais e aplicações em Next.js — e gerimos
+              tráfego pago no Meta Ads para o negócio não ficar parado.
             </p>
             <div className="reveal-delay-2 mt-10 flex flex-wrap items-center gap-4">
               <a
                 href="#trafego"
                 className="rounded-xl bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--accent-deep)]"
               >
-                Ver planos de tráfego
+                Ver tráfego pago
               </a>
               <a
-                href={WHATSAPP_TRAFEGO}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#servicos"
                 className="rounded-xl border border-[var(--line-strong)] px-7 py-3.5 text-sm font-medium text-[var(--text)] transition-colors hover:border-[var(--accent)]/50 hover:text-[var(--accent)]"
               >
-                WhatsApp agora
+                Criação de sites
               </a>
             </div>
           </div>
         </section>
 
-        {/* TRÁFEGO PAGO — secção principal */}
+        {/* TRÁFEGO PAGO */}
         <section
           id="trafego"
           className="relative border-y border-[var(--line)] bg-[var(--ink-raised)] px-5 py-20 md:px-8 md:py-28"
@@ -188,9 +281,7 @@ export default function Home() {
                   href={WHATSAPP_TRAFEGO}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex flex-col bg-[var(--ink-raised)] p-7 transition-colors hover:bg-[var(--ink-soft)] md:p-8 ${
-                    pkg.featured ? "relative" : ""
-                  }`}
+                  className="group flex flex-col bg-[var(--ink-raised)] p-7 transition-colors hover:bg-[var(--ink-soft)] md:p-8"
                 >
                   {pkg.featured && (
                     <span className="mb-4 inline-block w-fit text-[10px] uppercase tracking-[0.2em] text-[var(--accent)]">
@@ -216,7 +307,7 @@ export default function Home() {
                   <ul className="mt-6 flex flex-1 flex-col gap-2.5 text-sm text-[var(--text)]/85">
                     {pkg.points.map((point) => (
                       <li key={point} className="flex gap-2">
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--accent)]" />
+                        <span className="mt-2 h-1 w-1 shrink-0 bg-[var(--accent)]" />
                         {point}
                       </li>
                     ))}
@@ -252,31 +343,127 @@ export default function Home() {
           </div>
         </section>
 
-        {/* COMO FUNCIONA */}
+        {/* DESENVOLVIMENTO / CRIAÇÃO DE SITES */}
+        <section
+          id="servicos"
+          className="border-b border-[var(--line)] px-5 py-20 md:px-8 md:py-28"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+              <div className="lg:col-span-6">
+                <p className="text-xs uppercase tracking-[0.28em] text-[var(--accent)]">
+                  Programação & criação de sites
+                </p>
+                <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
+                  Desenvolvimento web moderno sob medida
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-[var(--muted)] md:text-lg">
+                  Na{" "}
+                  <strong className="font-semibold text-[var(--text)]">
+                    SNB — Software Norte Build
+                  </strong>
+                  , construímos plataformas digitais robustas, rápidas e
+                  focadas na conversão do teu cliente.
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-[var(--muted)]">
+                  E-commerce com pagamentos locais, portais para stands de
+                  automóveis com motores de busca e filtros em tempo real, ou
+                  aplicações web exclusivas — cada linha de código pensada no
+                  desempenho e no crescimento do negócio.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href={WHATSAPP_SITES}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--accent-deep)]"
+                  >
+                    Orçamento de site / app
+                  </a>
+                  <a
+                    href="#projetos"
+                    className="rounded-xl border border-[var(--line-strong)] px-6 py-3 text-sm font-medium text-[var(--text)] transition-colors hover:border-[var(--accent)]/40"
+                  >
+                    Ver portefólio
+                  </a>
+                </div>
+              </div>
+              <div className="lg:col-span-6">
+                <WebDevCarousel />
+              </div>
+            </div>
+
+            <div className="mt-16 grid gap-8 border-t border-[var(--line)] pt-12 md:grid-cols-2 lg:grid-cols-4">
+              {webServices.map((service) => (
+                <div key={service.title} className="border-t border-[var(--line)] pt-5 md:border-t-0 md:pt-0">
+                  <h3 className="font-display text-lg font-semibold text-[var(--text)]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+                    {service.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-14 border border-[var(--line)] bg-[var(--ink-raised)]/80 p-7 md:p-10">
+              <p className="text-xs uppercase tracking-[0.22em] text-[var(--accent)]">
+                Stack
+              </p>
+              <h3 className="font-display mt-3 text-2xl font-semibold md:text-3xl">
+                Next.js, React, TypeScript e integrações reais
+              </h3>
+              <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)] md:text-base">
+                Trabalhamos com as tecnologias que usam os projectos que já
+                entregámos: lojas com Stripe e métodos portugueses, formulários
+                automatizados, APIs e painéis de gestão. Se precisares do site
+                novo e do tráfego a alimentar leads, fazemos os dois.
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--text)]/80">
+                {[
+                  "Next.js",
+                  "React",
+                  "TypeScript",
+                  "Tailwind CSS",
+                  "Stripe / MB WAY",
+                  "APIs REST",
+                  "Formulários & automações",
+                ].map((tech) => (
+                  <li key={tech} className="flex items-center gap-2">
+                    <span className="h-1 w-1 bg-[var(--accent)]" />
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* PROCESSO SITES */}
         <section className="px-5 py-20 md:px-8 md:py-24">
           <div className="mx-auto max-w-6xl">
             <p className="text-xs uppercase tracking-[0.28em] text-[var(--accent)]">
-              Processo
+              Como trabalhamos
             </p>
-            <h2 className="font-display mt-4 max-w-xl text-3xl font-semibold tracking-tight md:text-4xl">
-              Do briefing ao primeiro lead
+            <h2 className="font-display mt-4 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
+              Do briefing ao site no ar — e aos primeiros leads
             </h2>
             <ol className="mt-12 grid gap-10 md:grid-cols-3">
               {[
                 {
                   n: "01",
-                  t: "Alinhamos o alvo",
-                  d: "Produto, zona, orçamento diário e o que conta como cliente (chamada, formulário, WhatsApp).",
+                  t: "Definimos o objectivo",
+                  d: "Site institucional, loja, portal ou app. Conteúdo, funções e o que conta como conversão.",
                 },
                 {
                   n: "02",
-                  t: "Lançamos a campanha",
-                  d: "Criativos, textos e públicos no Meta. Ligamos ao teu site ou página de contacto.",
+                  t: "Desenhamos e programamos",
+                  d: "Interface limpa, código em Next.js, integrações de pagamento, formulários e contacto.",
                 },
                 {
                   n: "03",
-                  t: "Otimizamos e reportamos",
-                  d: "Cortamos o que não funciona, reforçamos o que traz leads e mostramos números claros.",
+                  t: "Lançamos e impulsionamos",
+                  d: "Publicamos o site e, se quiseres, metemos tráfego pago a trazer visitas e orçamentos.",
                 },
               ].map((step) => (
                 <li key={step.n} className="border-t border-[var(--line)] pt-6">
@@ -304,15 +491,15 @@ export default function Home() {
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-[var(--accent)]">
-                  Trabalho
+                  Portefólio
                 </p>
                 <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-                  Sites que já construímos
+                  Projectos em destaque
                 </h2>
               </div>
               <p className="max-w-sm text-sm text-[var(--muted)]">
-                Também fazemos o site — e depois metemos tráfego em cima para
-                não ficares com uma página parada.
+                Exemplos reais: e-commerce, portal automóvel e site de mudanças
+                com formulário de contacto.
               </p>
             </div>
 
@@ -351,6 +538,11 @@ export default function Home() {
                     <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
                       {project.description}
                     </p>
+                    {project.tags?.length > 0 && (
+                      <p className="mt-3 text-xs tracking-wide text-[var(--muted)]/80">
+                        {project.tags.join(" · ")}
+                      </p>
+                    )}
                   </div>
                 </a>
               ))}
@@ -368,26 +560,32 @@ export default function Home() {
               Contacto
             </p>
             <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-              Diz o teu negócio.
-              <br />
-              Nós propomos o plano.
+              Tens um projecto em mente?
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-base text-[var(--muted)]">
-              Resposta rápida no WhatsApp. Ideal se precisas de leads esta
-              semana e não queres perder tempo com agências lentas.
+              Site, loja, portal, app ou campanha de tráfego — diz o que
+              precisas e avançamos com uma proposta clara.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
                 href={WHATSAPP_TRAFEGO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--accent-deep)]"
+                className="rounded-xl bg-[var(--accent)] px-7 py-4 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--accent-deep)]"
               >
-                WhatsApp · Tráfego pago
+                WhatsApp · Tráfego
+              </a>
+              <a
+                href={WHATSAPP_SITES}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-[var(--line-strong)] px-7 py-4 text-sm font-medium text-[var(--text)] transition-colors hover:border-[var(--accent)]/40"
+              >
+                WhatsApp · Sites & apps
               </a>
               <a
                 href="mailto:geral@snbsoftware.com"
-                className="rounded-xl border border-[var(--line-strong)] px-8 py-4 text-sm font-medium text-[var(--text)] transition-colors hover:border-[var(--accent)]/40"
+                className="rounded-xl border border-[var(--line-strong)] px-7 py-4 text-sm font-medium text-[var(--text)] transition-colors hover:border-[var(--accent)]/40"
               >
                 geral@snbsoftware.com
               </a>
@@ -399,7 +597,9 @@ export default function Home() {
       <footer className="border-t border-[var(--line)] px-5 py-8 md:px-8">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 text-xs text-[var(--muted)] md:flex-row md:items-center">
           <p>© 2026 SNB — Software Norte Build</p>
-          <p className="tracking-[0.12em] uppercase">Sites · Apps · Tráfego</p>
+          <p className="tracking-[0.12em] uppercase">
+            Sites · Apps · Tráfego pago
+          </p>
         </div>
       </footer>
     </div>
