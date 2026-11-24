@@ -18,7 +18,7 @@ const WHATSAPP_SITES =
 const packages = [
   {
     name: "Arranque",
-    price: "desde 197€",
+    price: "desde 100€",
     period: "/mês",
     blurb: "Para validar anúncios e começar a receber contactos sem complicar.",
     points: [
@@ -30,7 +30,7 @@ const packages = [
   },
   {
     name: "Crescimento",
-    price: "desde 347€",
+    price: "desde 250€",
     period: "/mês",
     blurb: "Para quem já tem site e quer volume estável de leads ou vendas.",
     points: [
