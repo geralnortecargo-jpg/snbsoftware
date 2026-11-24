@@ -1,12 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Syne, Figtree } from "next/font/google";
 import "./globals.css";
+import WhatsAppButton from "./WhatsAppButton";
 
-const inter = Inter({ subsets: ["latin"] });
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["500", "600", "700", "800"],
+});
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
-  title: "SNB Software - Desenvolvimento Web e Aplicações à Medida",
-  description: "Especialistas em Next.js, React, Landing Pages e Software de Gestão.",
+  title: "SNB Software — Sites, Apps e Tráfego Pago",
+  description:
+    "SNB Software Norte Build: desenvolvimento web e gestão de tráfego pago (Meta Ads) para trazer clientes ao teu negócio.",
 };
 
 export default function RootLayout({
@@ -15,10 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt">
+    <html lang="pt" className={`${syne.variable} ${figtree.variable}`}>
       <head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-NF45B7ZF"></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=GTM-NF45B7ZF"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -30,8 +44,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-gray-900 text-gray-200 antialiased min-h-screen flex flex-col`}>
+      <body className="min-h-screen antialiased">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

@@ -1,9 +1,95 @@
 @import "tailwindcss";
 
+:root {
+  --ink: #070708;
+  --ink-raised: #101014;
+  --ink-soft: #16161c;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --text: #ebe7df;
+  --muted: #9a958c;
+  --accent: #c4a574;
+  --accent-soft: rgba(196, 165, 116, 0.14);
+  --accent-deep: #a8864f;
+}
+
 @layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    background-color: #626263; /* Cor slate-950 */
-    color: #f8fafc; /* Cor slate-50 */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--font-body), "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--ink);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), Georgia, serif;
+  }
+
+  .surface-noise {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(196, 165, 116, 0.12), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(80, 90, 120, 0.18), transparent 50%),
+      linear-gradient(180deg, #0b0b0e 0%, #070708 40%, #050506 100%);
+  }
+
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .reveal {
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .reveal-delay {
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+  }
+
+  .reveal-delay-2 {
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes softPulse {
+    0%,
+    100% {
+      opacity: 0.45;
+    }
+    50% {
+      opacity: 0.85;
+    }
+  }
+
+  .accent-pulse {
+    animation: softPulse 3.2s ease-in-out infinite;
   }
 }
