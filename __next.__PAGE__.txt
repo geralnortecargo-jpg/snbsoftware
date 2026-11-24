@@ -1,0 +1,24 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/0umf92h1sb77c.js"
+4:I[47257,["$3"],"ClientPageRoot"]
+5:"/_next/static/chunks/1tl493q62zhso.js"
+6:I[31713,["$3","$5"],"default"]
+9:I[97367,["$3"],"OutletBoundary"]
+a:"$Sreact.suspense"
+e:"ViewportBoundary"
+f:I[97367,["$3"],"$e"]
+10:"MetadataBoundary"
+11:I[97367,["$3"],"$10"]
+12:I[27201,["$3"],"IconMark"]
+d:X
+1:[["children",{"s":"__PAGE__","h":128,"d":{"r":["$","$2","c",{"children":[["$","$L4",null,{"Component":"$6","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@7","$@8"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/1tl493q62zhso.js","async":true}]],["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]]}],"p":"$@c","v":null,"s":"$d"}}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$Lf",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L11",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$a",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"SNB Software — Sites, Apps e Tráfego Pago"}],["$","meta","1",{"name":"description","content":"SNB Software Norte Build: desenvolvimento web e gestão de tráfego pago (Meta Ads) para trazer clientes ao teu negócio."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L12","3",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@13","v":null,"s":"$d"}},"a":"$@14","u":"$@15","b":"D0bUbYxxEkICh_DIAeGvP"}
+7:{}
+8:"$1:0:1:d:r:props:children:0:props:serverProvidedParams:params"
+b:null
+15:true
+d:300
+d:C
+14:0
+13:"$undefined"
+c:"$undefined"
