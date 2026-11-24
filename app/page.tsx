@@ -217,10 +217,10 @@ export default function Home() {
             className="pointer-events-none absolute inset-0 -z-10"
             style={{
               backgroundImage:
-                "linear-gradient(to top, #070708 8%, rgba(7,7,8,0.92) 42%, rgba(7,7,8,0.78) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1800&auto=format&fit=crop')",
+                "linear-gradient(to top, #070708 5%, rgba(7,7,8,0.72) 38%, rgba(7,7,8,0.45) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop')",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              filter: "saturate(0.55) brightness(0.55)",
+              filter: "saturate(0.78) brightness(0.82) contrast(1.08)",
             }}
           />
 
