@@ -498,8 +498,8 @@ export default function Home() {
                 </h2>
               </div>
               <p className="max-w-sm text-sm text-[var(--muted)]">
-                Exemplos reais: e-commerce, portal automóvel e site de mudanças
-                com formulário de contacto.
+                Exemplos reais: peças de desmontagem, e-commerce, portal
+                automóvel e site de mudanças.
               </p>
             </div>
 

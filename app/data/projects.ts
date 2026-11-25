@@ -12,6 +12,17 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    id: 5,
+    title: "O Mundo das Sucatas",
+    category: "Peças de desmontagem",
+    client: "RuiParts",
+    description:
+      "Loja de peças de sucata com pesquisa por marca, modelo, ano, combustível, VIN e referência. O pedido fica registado e o pátio confirma.",
+    tags: ["Next.js", "React", "Supabase", "TypeScript"],
+    image: "/projects/ruiparts.jpg",
+    link: "https://ruiparts-mmui.vercel.app",
+  },
+  {
     id: 1,
     title: "Loja 19 - E-Commerce",
     category: "E-Commerce",
@@ -54,16 +65,5 @@ export const projectsData: Project[] = [
     tags: ["Landing", "UI médica", "Reservas"],
     image: "/projects/clinica.jpg",
     link: "https://clinicademo.vercel.app",
-  },
-  {
-    id: 5,
-    title: "RuiParts - Peças Automóvel",
-    category: "Catálogo B2B",
-    client: "RuiParts",
-    description:
-      "Catálogo e área de cliente para peças automóvel: pesquisa, encomendas, histórico e painel de gestão.",
-    tags: ["Next.js", "React", "Dashboard", "Catálogo"],
-    image: "/projects/ruiparts.jpg",
-    link: "https://ruiparts-mmui.vercel.app",
   },
 ];
